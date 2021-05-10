@@ -64,6 +64,8 @@ You will also need to install colorama: `python3 -m pip install colorama`
 The first argument should be the JWT itself (*unless providing this in a header or cookie value*). Providing no additional arguments will show you the decoded token values for review.  
 `$ python3 jwt_tool.py <JWT>`  
 
+python3 jwt_tool.py -b -S hs256 -p 'secretl2345' $(echo -n '{"alg":"HS256","typ":"JWT"}' | base64).$(echo -n '{"name": "1", "exp":' `date -d "+7 days" +%s`} | base64 -w0).
+
 The toolkit will validate the token and list the header and payload values.  
 
 ### Additional arguments
